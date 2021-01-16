@@ -127,7 +127,22 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
     if (0 < info.player2.life()) {
         Dart2 = sprites.createProjectileFromSprite(img`
-            a e 3 . a 7 e c a e 2 b e 3 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . 8 8 8 8 8 . . . . . . 
+            . . . . . 8 8 8 8 8 . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
             `, player2, 200, 0)
         Dart2.setKind(SpriteKind.projectile2)
         pause(125)
