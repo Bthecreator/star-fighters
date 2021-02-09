@@ -146,9 +146,27 @@ controller.A.on_event(ControllerButtonEvent.PRESSED, on_a_pressed)
 def on_player2_button_a_pressed():
     global Dart2
     if 0 < info.player2.life():
-        Dart2 = sprites.create_projectile_from_sprite(assets.image("""
-            player 2 bullet
-        """), player2, 200, 0)
+        Dart2 = sprites.create_projectile_from_sprite(img("""
+                . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . 8 8 8 8 8 . . . . . . 
+                            . . . . . 8 8 8 8 8 . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . . 
+                            . . . . . . . . . . . . . . . .
+            """),
+            player2,
+            200,
+            0)
         Dart2.set_kind(SpriteKind.projectile2)
         pause(125)
         music.pew_pew.play()
@@ -373,7 +391,7 @@ scene.set_background_image(img("""
         fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
         fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 """))
-effects.star_field.start_screen_effect()
+effects.star_field.start_screen_effect(500)
 statusbar_player_1 = statusbars.create(20, 3, StatusBarKind.health)
 statusbar_player_2 = statusbars.create(20, 3, StatusBarKind.health)
 player1 = sprites.create(img("""
@@ -460,6 +478,15 @@ def on_update_interval():
 game.on_update_interval(1000, on_update_interval)
 
 def on_forever():
+    music.play_melody("C5 B B A A B A G ", 550)
+forever(on_forever)
+
+def on_forever2():
+    statusbar_player_1.attach_to_sprite(player1, 10, 15)
+    statusbar_player_2.attach_to_sprite(player2, 10, 15)
+forever(on_forever2)
+
+def on_forever3():
     if info.life() == 0 and info.player2.life() == 0:
         pause(100)
         game.over(False, effects.melt)
@@ -469,15 +496,6 @@ def on_forever():
         player2.destroy(effects.disintegrate, 1000)
     else:
         pass
-forever(on_forever)
-
-def on_forever2():
-    music.play_melody("C5 B B A A B A G ", 550)
-forever(on_forever2)
-
-def on_forever3():
-    statusbar_player_1.attach_to_sprite(player1, 10, 15)
-    statusbar_player_2.attach_to_sprite(player2, 10, 15)
 forever(on_forever3)
 
 def on_update_interval2():
