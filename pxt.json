@@ -1,5 +1,5 @@
 {
-    "name": "Star fighter",
+    "name": "Star fighters",
     "description": "",
     "dependencies": {
         "device": "*",
@@ -22,7 +22,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.5.8",
+        "target": "1.4.35",
         "targetId": "arcade"
     },
     "supportedTargets": [

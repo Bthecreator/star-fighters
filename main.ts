@@ -25,8 +25,6 @@ controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Repea
         Dart2.setKind(SpriteKind.projectile2)
         pause(125)
         music.pewPew.play()
-    } else {
-    	
     }
 })
 controller.player2.onButtonEvent(ControllerButton.B, ControllerButtonEvent.Pressed, function () {
@@ -145,8 +143,6 @@ controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
         Dart2.setKind(SpriteKind.projectile2)
         pause(125)
         music.pewPew.play()
-    } else {
-    	
     }
 })
 sprites.onOverlap(SpriteKind.projectile2, SpriteKind.Enemy, function (sprite, otherSprite) {
@@ -450,8 +446,8 @@ forever(function () {
     }
 })
 forever(function () {
-    statusbar_player_1.attachToSprite(player1, 10, 15)
-    statusbar_player_2.attachToSprite(player2, 10, 15)
+    statusbar_player_1.attachToSprite(player1, 10, 0)
+    statusbar_player_2.attachToSprite(player2, 10, 0)
 })
 forever(function () {
     music.playMelody("C5 B B A A B A G ", 550)
